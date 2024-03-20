@@ -5,7 +5,7 @@ project: python-visitors
 agent:
     kind: codefly:service
     name: python-fastapi
-    version: 0.0.30
+    version: 0.0.31
     publisher: codefly.dev
 service-dependencies:
     - name: store

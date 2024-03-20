@@ -5,7 +5,7 @@ project: python-visitors
 agent:
     kind: codefly:service
     name: external-postgres
-    version: 0.0.20
+    version: 0.0.21
     publisher: codefly.dev
 service-dependencies: []
 provider-dependencies: []
