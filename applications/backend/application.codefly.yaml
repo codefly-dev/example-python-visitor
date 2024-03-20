@@ -1,0 +1,7 @@
+kind: application
+name: backend
+project: python-visitors
+source-version-control: ""
+services:
+    - name: server
+    - name: store

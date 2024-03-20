@@ -1,0 +1,6 @@
+name: python-visitors
+id: f67039c4-e54c-11ee-8e95-acde48001122
+applications:
+    - name: backend
+    - name: web
+environments: []

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-server
+  namespace: "python-visitors-backend"
+data:
+  CODEFLY_PROVIDER__BACKEND__STORE___POSTGRES____CONNECTION: postgresql://user:password@host.docker.internal:42350/visitors?sslmode=disable

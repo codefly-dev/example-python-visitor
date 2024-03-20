@@ -1,0 +1,21 @@
+name: server
+version: 0.0.0
+application: backend
+project: python-visitors
+agent:
+    kind: codefly:service
+    name: python-fastapi
+    version: 0.0.30
+    publisher: codefly.dev
+service-dependencies:
+    - name: store
+provider-dependencies: []
+endpoints:
+    - name: rest
+      visibility: public
+      api: rest
+spec:
+    debug: false
+    runtime-packages:
+        - libpq5
+    watch: true
