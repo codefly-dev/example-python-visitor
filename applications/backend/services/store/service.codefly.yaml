@@ -16,8 +16,8 @@ endpoints:
 spec:
     database-name: visitors
     debug: false
-    no-migration: true
+    no-migration: false
     persist: false
-    silent: false
+    silent: true
     watch: true
     without-ssl: true
