@@ -1,24 +1,24 @@
-name: cache
+name: test
 version: 0.0.0
 application: backend
 project: python-visitors
 agent:
     kind: codefly:service
-    name: redis
-    version: 0.0.17
+    name: go-grpc
+    version: 0.0.100
     publisher: codefly.dev
 service-dependencies: []
 provider-dependencies: []
 endpoints:
-    - name: write
+    - name: grpc
       visibility: private
-      api: tcp
-    - name: read
+      api: grpc
+    - name: rest
       visibility: private
-      api: tcp
+      api: rest
 spec:
     debug: false
-    persist: true
-    read-replica: true
-    silent: true
-    watch: false
+    watch: true
+    with-debug-symbols: false
+    with-race-condition-detection-run: false
+    with-rest-endpoint: true
