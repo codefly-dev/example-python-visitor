@@ -6,3 +6,4 @@ services:
     - name: server
     - name: store
     - name: cache
+    - name: test
