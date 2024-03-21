@@ -5,10 +5,11 @@ project: python-visitors
 agent:
     kind: codefly:service
     name: python-fastapi
-    version: 0.0.31
+    version: 0.0.32
     publisher: codefly.dev
 service-dependencies:
     - name: store
+    - name: cache
 provider-dependencies: []
 endpoints:
     - name: rest

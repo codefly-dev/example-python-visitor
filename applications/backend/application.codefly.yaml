@@ -5,3 +5,4 @@ source-version-control: ""
 services:
     - name: server
     - name: store
+    - name: cache

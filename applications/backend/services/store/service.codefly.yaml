@@ -5,7 +5,7 @@ project: python-visitors
 agent:
     kind: codefly:service
     name: external-postgres
-    version: 0.0.21
+    version: 0.0.22
     publisher: codefly.dev
 service-dependencies: []
 provider-dependencies: []
@@ -17,7 +17,7 @@ spec:
     database-name: visitors
     debug: false
     no-migration: false
-    persist: false
+    persist: true
     silent: true
     watch: true
     without-ssl: true
