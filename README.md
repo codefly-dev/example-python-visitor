@@ -1,11 +1,76 @@
 # Welcome to Project python-visitors codefly examples!
 
+## Setup
+
+### Install the codefly CLI
+
+```shell
+brew tap codefly-dev/cli 
+brew install codefly
+```
+
+### Requirement
+
+- Docker
+- python/poetry installed
+
+Note: I was debating about having no dependency on python at all for the python agent but I thought for now, people would be more comfortable with running a bit "closer" to home. But it would be definitely possible to write a agent that does all the python stuff from a Docker container. Codefly really doesn't care what runs underneath the agent.
+
+
 ## What are we building
 
-### 3 Tier App
+### 3.5 Tier App
 
-A "3 Tier App" to show the statistics of the visitors to a website. The app will have a web front end, a backend API, a cache and a database.
+A "3 Tier App" to show the statistics of the visitors to a website. The app will have a web front end, a backend API, a cache (the 0.5 part) and a database.
 
+
+### Getting it running locally
+
+If you want to run the full stack, go inside the website service folder and run:
+
+```shell
+cd applications/web/services/frontend
+codefly run service
+```
+
+If you only want to run the backend
+
+```shell
+cd applications/backend/services/server
+codefly run service
+```
+
+If you want to check out the frontend companion to the CLI, add the `--server` flag:
+
+```shell
+codefly run service --server
+```
+
+### Deploying to local Kubernetes
+
+Go to the frontend server folder and run:
+
+#### Build the Docker images
+
+```shell
+codefly build service
+```
+
+#### Create the k8s manifests and applying them
+
+```shell
+codefly deploy service --apply
+```
+
+#### Validate
+
+```shell
+codefly expose
+```
+
+It should give you local URL to browse to your website and API.
+
+Only **public** endpoints are exposed like this.
 
 ### Structure of the project
 
@@ -253,6 +318,49 @@ and test the API:
 ❯ curl http://localhost:42042/visit/statistics
 {"total_visits":4,"visits":[{"date":"2024-03-19T00:00:00","visits":4}]}%
 ```
+
+## Adding caching with redis
+
+### Adding a cache service with the `redis agent`
+
+We will use the `redis` agent to create the cache. It exposes two endpoints: one for `write` and one for `read`.
+
+Note: These two endpoints will work whether you use read replicas or not. Read and write are functionalities that don't depend  on the actual infrastructure.
+
+
+```shell
+codefly add service cache --agent=redis
+```
+
+The agent installation should ask you whether you actually want to run read replicas. It should depend on your use case.
+
+### Linking the `server` and `cache` services
+
+In the `server` service folder, run:
+
+```shell
+codefly add dependency
+```
+
+### Adding the business logic
+
+We implemented the cache logic in `cache.py` and added it to the REST endpoint.
+
+The important part is as with the database, how do we get the redis connection strings.
+
+Remember, we have two endpoints *write* and *read* provided by this `redis` agent so we expect two connection strings as well!
+
+As for the database, we rely on the SDK to get our provider information:
+
+```python
+connection_write_redis = codefly.get_service_provider_info(application="backend", service="cache", name="redis", key="write")
+connection_read_redis = codefly.get_service_provider_info(application="backend", service="cache", name="redis", key="read")
+```
+
+Note: How we know what provider info are exposed by a given service? This is actually part of the service API and we display it for example in the CLI frontend companion.
+
+TODO: Do we want the SDK to list the provider information available?
+
 
 ## Local Kubernetes
 
