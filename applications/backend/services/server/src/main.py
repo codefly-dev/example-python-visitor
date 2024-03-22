@@ -39,9 +39,6 @@ if connection_read_redis and connection_write_redis:
     print("read: " + connection_read_redis)
     print("write: " + connection_write_redis)
     cache = Cache(connection_write=connection_write_redis, connection_read=connection_read_redis)
-else:
-    print("no cache")
-
 
 
 @app.get("/version")
