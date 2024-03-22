@@ -18,7 +18,7 @@ class Storage:
                 today = datetime.today().date()
                 cursor.execute("""
                     INSERT INTO store (date, visits)
-                    VALUES (%s, 1)
+                    VALUES (%s, 0)
                     ON CONFLICT (date) DO NOTHING
                 """, (today,))
                 cursor.execute("""
