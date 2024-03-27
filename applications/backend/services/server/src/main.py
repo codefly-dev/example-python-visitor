@@ -4,6 +4,10 @@ import codefly.codefly as codefly
 from storage import Storage
 from cache import Cache
 from visit import *
+import os
+
+
+print("Starting server")
 
 codefly.init()
 
@@ -25,21 +29,23 @@ if codefly.is_local():
 store = None
 cache = None
 
-connection_db = codefly.get_service_provider_info(application="backend", service="store", name="postgres", key="connection")
-connection_write_redis = codefly.get_service_provider_info(application="backend", service="cache", name="redis", key="write")
-connection_read_redis = codefly.get_service_provider_info(application="backend", service="cache", name="redis", key="read")
+connection_db = codefly.secret(service="store", name="postgres", key="connection")
+# connection_write_redis = codefly.get_service_provider_info(application="backend", service="cache", name="redis", key="write")
+# connection_read_redis = codefly.get_service_provider_info(application="backend", service="cache", name="redis", key="read")
+#
 
+
+print(os.environ)
 
 if connection_db:
     print("setting storage")
     store = Storage(connection_db)
-
-if connection_read_redis and connection_write_redis:
-    print("setting cache")
-    print("read: " + connection_read_redis)
-    print("write: " + connection_write_redis)
-    cache = Cache(connection_write=connection_write_redis, connection_read=connection_read_redis)
-
+#
+# if connection_read_redis and connection_write_redis:
+#     print("setting cache")
+#     print("read: " + connection_read_redis)
+#     print("write: " + connection_write_redis)
+#     cache = Cache(connection_write=connection_write_redis, connection_read=connection_read_redis)
 
 @app.get("/version")
 async def version():
