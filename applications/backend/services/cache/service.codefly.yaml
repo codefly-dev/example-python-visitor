@@ -5,16 +5,16 @@ project: python-visitors
 agent:
     kind: codefly:service
     name: redis
-    version: 0.0.18
+    version: 0.0.21
     publisher: codefly.dev
 service-dependencies: []
-provider-dependencies: []
+project-configuration-dependencies: []
 endpoints:
     - name: write
-      visibility: private
+      visibility: ""
       api: tcp
     - name: read
-      visibility: private
+      visibility: ""
       api: tcp
 spec:
     debug: false

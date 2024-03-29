@@ -5,15 +5,14 @@ project: python-visitors
 agent:
     kind: codefly:service
     name: nextjs
-    version: 0.0.13
+    version: 0.0.16
     publisher: codefly.dev
 service-dependencies:
     - name: server
       application: backend
-provider-dependencies: []
+project-configuration-dependencies: []
 endpoints:
     - name: http
       visibility: public
-      api: http
 spec:
     debug: false

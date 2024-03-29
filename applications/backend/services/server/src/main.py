@@ -4,7 +4,6 @@ import codefly.codefly as codefly
 from storage import Storage
 from cache import Cache
 from visit import *
-import os
 
 
 print("Starting server")
@@ -30,22 +29,19 @@ store = None
 cache = None
 
 connection_db = codefly.secret(service="store", name="postgres", key="connection")
-# connection_write_redis = codefly.get_service_provider_info(application="backend", service="cache", name="redis", key="write")
-# connection_read_redis = codefly.get_service_provider_info(application="backend", service="cache", name="redis", key="read")
-#
+connection_write_redis = codefly.secret(service="cache", name="write", key="connection")
+connection_read_redis = codefly.secret(service="cache", name="read", key="connection")
 
-
-print(os.environ)
 
 if connection_db:
-    print("setting storage")
+    print("setting storage", connection_db)
     store = Storage(connection_db)
 #
-# if connection_read_redis and connection_write_redis:
-#     print("setting cache")
-#     print("read: " + connection_read_redis)
-#     print("write: " + connection_write_redis)
-#     cache = Cache(connection_write=connection_write_redis, connection_read=connection_read_redis)
+if connection_read_redis and connection_write_redis:
+    print("setting cache")
+    print("read: " + connection_read_redis)
+    print("write: " + connection_write_redis)
+    cache = Cache(connection_write=connection_write_redis, connection_read=connection_read_redis)
 
 @app.get("/version")
 async def version():
@@ -60,7 +56,7 @@ async def visit():
     resp = store.create_visit()
     statistics = store.get_visit_statistics()
     if cache:
-        cache.set("statistics",statistics)
+        cache.set("statistics", statistics)
     if not resp:
         raise HTTPException(status_code=500, detail="Can't create visit")
     return resp

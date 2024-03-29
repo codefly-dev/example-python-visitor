@@ -5,16 +5,15 @@ project: python-visitors
 agent:
     kind: codefly:service
     name: python-poetry-fastapi
-    version: 0.0.2
+    version: 0.0.3
     publisher: codefly.dev
 service-dependencies:
     - name: store
-#    - name: cache
-provider-dependencies: []
+    - name: cache
+project-configuration-dependencies: []
 endpoints:
     - name: rest
       visibility: public
-      api: rest
 spec:
     debug: false
     runtime-packages:
