@@ -41,3 +41,5 @@ const useResponseData = () => {
 };
 
 export { ResponseDataProvider, useResponseData };
+
+export default ResponseDataProvider;

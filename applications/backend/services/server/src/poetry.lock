@@ -60,13 +60,13 @@ colorama = {version = "*", markers = "platform_system == \"Windows\""}
 
 [[package]]
 name = "codefly-sdk"
-version = "0.0.8"
+version = "0.0.10"
 description = ""
 optional = false
 python-versions = "<4.0,>=3.10"
 files = [
-    {file = "codefly_sdk-0.0.8-py3-none-any.whl", hash = "sha256:5c96b3b4a63e08caff3f19945735944dc606558ebea99ae9ceadf0232764bfba"},
-    {file = "codefly_sdk-0.0.8.tar.gz", hash = "sha256:52fa32d5dd8f7c0dddc37acccfaf796d69c56b915994d5c046815790fa7aecc1"},
+    {file = "codefly_sdk-0.0.10-py3-none-any.whl", hash = "sha256:9fb8fc2a050abf5fd7f60c9e9db53518b7d0284088a127a9538ae08702d2409b"},
+    {file = "codefly_sdk-0.0.10.tar.gz", hash = "sha256:957384cb5f6d2b735273011a425f80b2c79020fcc5786909318580a7630ea253"},
 ]
 
 [package.dependencies]
@@ -469,4 +469,4 @@ standard = ["colorama (>=0.4)", "httptools (>=0.5.0)", "python-dotenv (>=0.13)",
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "0132160e42c530c94c460806d2d349f30221e98a05c3d60d24e0863f5cf66066"
+content-hash = "04f8f14e7ff0a9e93140f2a261e679326552cd1fe3b5d59d9d404ce2cba7c6a5"

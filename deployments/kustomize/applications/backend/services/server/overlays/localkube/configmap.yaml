@@ -4,3 +4,4 @@ metadata:
   name: config-server
   namespace: "python-visitors-backend"
 data:
+  CODEFLY__RUNNING: "true"
