@@ -5,9 +5,9 @@ metadata:
   namespace: "python-visitors-backend"
 spec:
   selector:
-    app: "cache-read"
+    app: "cache-write"
   ports:
     - protocol: TCP
       name: tcp-port
-      port: 7070
+      port: 6379
       targetPort: 6379

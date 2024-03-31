@@ -5,13 +5,13 @@ project: python-visitors
 agent:
     kind: codefly:service
     name: external-postgres
-    version: 0.0.26
+    version: 0.0.30
     publisher: codefly.dev
 service-dependencies: []
-provider-dependencies: []
+project-configuration-dependencies: []
 endpoints:
     - name: tcp
-      visibility: private
+      visibility: external
 spec:
     database-name: visitors
     debug: false

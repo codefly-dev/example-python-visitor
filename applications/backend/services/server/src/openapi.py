@@ -1,7 +1,6 @@
 import json
 from main import app
 import codefly.codefly as codefly
-
 from fastapi.openapi.utils import get_openapi
 
 if __name__ == "__main__":
