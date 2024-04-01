@@ -40,4 +40,4 @@ const useCodeflyContext = () => {
 
 export { CodeflyContextProvider, useCodeflyContext };
 
-// export default CodeflyContextProvider;
+export default CodeflyContextProvider;
