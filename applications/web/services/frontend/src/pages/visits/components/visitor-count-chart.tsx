@@ -15,7 +15,7 @@ const VisitorCountChart = ({ shouldYearShow = false, width = '400px', height = '
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const url = routing("GET", "backend/server", "/visit/statistics");
+                const url = routing("GET", { application: "backend", service: "server" }, "/visit/statistics");
                 const response = await fetch(url);
 
                 if (!response.ok) {
@@ -26,8 +26,6 @@ const VisitorCountChart = ({ shouldYearShow = false, width = '400px', height = '
                 setTotalVisits(visitorData.total_visits);
                 setStartCounting(true);
 
-
-                console.log("visitorData", visitorData)
             } catch (error) {
                 console.error("Error fetching visitor data:", error);
             }
@@ -85,7 +83,7 @@ const VisitorCountChart = ({ shouldYearShow = false, width = '400px', height = '
                     },
                     plugins: {
                         legend: {
-                            display: true,
+                            display: false,
                         },
                     },
                 },

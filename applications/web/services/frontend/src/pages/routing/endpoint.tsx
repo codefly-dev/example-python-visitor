@@ -66,7 +66,6 @@ const Endpoint = ({ endpoint }) => {
         setEndpoint(endpoint)
     }
 
-    console.log('endpoint', endpoint)
     return (
         <div className="bg-gray-200 dark:bg-gray-800 p-0 mb-4 cursor-pointer hover:bg-gray-300 border m-8 mt-0 border-gray-400 rounded-md">
             <ul className="list-none p-0">
