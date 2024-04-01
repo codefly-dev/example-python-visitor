@@ -4,7 +4,7 @@ metadata:
   name: config-frontend
   namespace: "python-visitors-web"
 data:
-  CODEFLY__ENDPOINT__BACKEND__SERVER__REST__REST: http://server.python-visitors-backend.svc.cluster.local:8080
-  CODEFLY__REST_ROUTE__BACKEND__SERVER__REST__REST___VERSION___GET: application
-  CODEFLY__REST_ROUTE__BACKEND__SERVER__REST__REST___VISIT__STATISTICS___GET: application
-  CODEFLY__REST_ROUTE__BACKEND__SERVER__REST__REST___VISIT___POST: application
+  CODEFLY__ENDPOINT__BACKEND__SERVER__REST__REST: http://localhost:42042
+  CODEFLY__REST_ROUTE__BACKEND__SERVER__REST__REST___VERSION___GET: public
+  CODEFLY__REST_ROUTE__BACKEND__SERVER__REST__REST___VISIT__STATISTICS___GET: public
+  CODEFLY__REST_ROUTE__BACKEND__SERVER__REST__REST___VISIT___POST: public
