@@ -12,9 +12,6 @@ brew install codefly
 ### Requirement
 
 - Docker
-- python/poetry installed
-
-Note: I was debating about having no dependency on python at all for the python agent but I thought for now, people would be more comfortable with running a bit "closer" to home. But it would be definitely possible to write a agent that does all the python stuff from a Docker container. Codefly really doesn't care what runs underneath the agent.
 
 
 ## What are we building
@@ -32,6 +29,16 @@ If you want to run the full stack, go inside the website service folder and run:
 cd applications/web/services/frontend
 codefly run service
 ```
+
+will run everything. Public endpoints should receive a URL that you can see in the logs.
+
+You can also run with the `--server` flag that will also run `codefly` frontend component.
+
+```shell
+codefly run service --server
+```
+
+This is convenient to see your project, the dependencies, look at the logs, query your endpoints, etc...
 
 If you only want to run the backend
 

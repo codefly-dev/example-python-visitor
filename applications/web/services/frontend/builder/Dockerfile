@@ -11,15 +11,10 @@ RUN npm install --frozen-lockfile
 
 # Copy the rest of the application code
 
-COPY service.codefly.yaml service.codefly.yaml
+COPY service.codefly.yaml .
 
 COPY src .
 
-ENV CODEFLY_ENVIRONMENT=local
-ENV CODEFLY__ENDPOINT__BACKEND__SERVER__REST__REST=http://localhost:42042
-ENV CODEFLY__REST_ROUTE__BACKEND__SERVER__REST__REST___VISIT___POST=public
-ENV CODEFLY__REST_ROUTE__BACKEND__SERVER__REST__REST___VISIT__STATISTICS___GET=public
-ENV CODEFLY__REST_ROUTE__BACKEND__SERVER__REST__REST___VERSION___GET=public
 
 # Build the application
 CMD npm run dev
