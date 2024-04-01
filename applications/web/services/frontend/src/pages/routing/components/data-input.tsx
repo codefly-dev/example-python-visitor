@@ -5,7 +5,7 @@ import { useCodeflyContext } from '../../providers/codefly.provider';
 
 const DataInput = () => {
 
-    const [jsonInput, setJsonInput] = useState('');
+    const [jsonInput, setJsonInput] = useState('{}');
     const [jsonData, setJsonData] = useState(null);
     const [error, setError] = useState(null);
 
