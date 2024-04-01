@@ -43,5 +43,7 @@ COPY --chown=appuser --from=builder /app/service.codefly.yaml ./service.codefly.
 # Environment variable to specify production mode
 ENV NODE_ENV production
 
+EXPOSE 3000
+
 # Command to start the Next.js application in production mode
 CMD ["npm", "run", "start"]

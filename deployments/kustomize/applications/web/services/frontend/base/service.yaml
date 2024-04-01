@@ -5,7 +5,7 @@ metadata:
   namespace: "python-visitors-web"
 spec:
   selector:
-    app: frontend-web
+    app: frontend
   ports:
     - protocol: TCP
       name: http-port
