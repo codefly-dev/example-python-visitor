@@ -10,10 +10,10 @@ const getColorForMethod = (method) => {
         'GET': 'green',
         'POST': 'yellow',
         'PATCH': 'emerald',
-        'PUT' : 'emerald',
-        'DELETE' : 'red'
+        'PUT': 'emerald',
+        'DELETE': 'red'
     };
-    
+
     // TODO : do this later
     return colors[method] ? `bg-${colors[method]}-500` : 'bg-green-500';
 }
@@ -25,7 +25,12 @@ const Endpoint = ({ endpoint }) => {
     const hanldeFetch = async (route, data) => {
         const { method, path } = route;
 
-        const url = routing(method, endpoint.service, path)
+        const url = routing(method,
+            {
+                application: endpoint.application,
+                service: endpoint.service
+            },
+            path)
 
         try {
             if (!url) {
@@ -69,7 +74,7 @@ const Endpoint = ({ endpoint }) => {
     return (
         <div className="bg-gray-200 dark:bg-gray-800 p-0 mb-4 cursor-pointer hover:bg-gray-300 border m-8 mt-0 border-gray-400 rounded-md">
             <ul className="list-none p-0">
-                <li className="font-bold p-4 pl-8 flex" onClick={handleEndpointClick}>{endpoint.applicationName}/{endpoint.serviceName} <DoubleArrowRightIcon className="w-4 h-4 text-neutral-300 ml-2 mt-1 " /></li>
+                <li className="font-bold p-4 pl-8 flex" onClick={handleEndpointClick}>{endpoint.application}/{endpoint.service} <DoubleArrowRightIcon className="w-4 h-4 text-neutral-300 ml-2 mt-1 " /></li>
                 <div className={`transition-opacity transition-height overflow-hidden ${isContentVisible ? 'opacity-100 h-auto' : 'opacity-0 h-0'}`}>
                     {
                         endpoint.routes.map(r => (
