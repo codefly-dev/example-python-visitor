@@ -326,10 +326,10 @@ client-only@^0.0.1, client-only@0.0.1:
   resolved "https://registry.npmjs.org/client-only/-/client-only-0.0.1.tgz"
   integrity sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==
 
-codefly@^0.0.9:
-  version "0.0.9"
-  resolved "https://registry.npmjs.org/codefly/-/codefly-0.0.9.tgz"
-  integrity sha512-CbbDwe/sdyLt1CiyF1yisxmZZC8D6HB6KGv2rVa13GXQirs47GAh7lFghHIg/76P40zL0RVsa28CRTZJimMRRQ==
+codefly@^0.0.10:
+  version "0.0.10"
+  resolved "https://registry.npmjs.org/codefly/-/codefly-0.0.10.tgz"
+  integrity sha512-NJoGKao16yhH0zeE5mWrcJpuDvlHaEhYp2RUjdsKPoWZAS/2Lzd+h05KYeNKqJqSyN2axd+i1PV2xP/1TlRU9A==
 
 color-convert@^2.0.1:
   version "2.0.1"

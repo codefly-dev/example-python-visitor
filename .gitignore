@@ -1,2 +1,6 @@
 .cache
 __pycache__
+applications/web/services/frontend/src/node_modules/
+applications/web/services/frontend/src/.next/
+applications/web/services/frontend/src/.env.local
+applications/backend/services/server/run.sh
