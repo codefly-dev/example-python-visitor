@@ -18,8 +18,6 @@ const VisitorCountChart = ({ shouldYearShow = false, width = '400px', height = '
                 const url = routing("GET", "backend/server", "/visit/statistics");
                 const response = await fetch(url);
 
-
-
                 if (!response.ok) {
                     throw new Error("Failed to fetch data");
                 }
@@ -79,7 +77,7 @@ const VisitorCountChart = ({ shouldYearShow = false, width = '400px', height = '
                             grid: {
                                 display: true,
                             },
-                            beginAtZero: true, 
+                            beginAtZero: true,
                             ticks: {
                                 stepSize: 1 // Set the step size to 1
                             }
