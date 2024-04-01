@@ -15,7 +15,11 @@ const DataInput = () => {
     const hanldeFetch = async (route, data) => {
         const { method, path } = route;
 
-        const url = routing(method, endpoint.service, path)
+        const url = routing(method,
+            {
+                application: endpoint.application,
+                service: endpoint.service
+            }, path)
 
         try {
             if (!url) {
@@ -23,7 +27,7 @@ const DataInput = () => {
             }
 
             setLoading(true);
-            const response = await fetch( url, {
+            const response = await fetch(url, {
                 method: method,
                 headers: {
                     'Content-Type': 'application/json',

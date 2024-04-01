@@ -12,12 +12,9 @@ const DataView = () => {
 
     const method = route?.method;
 
-
     if (!response && !loading && !route) {
         return <DataViewInitital />
     }
-
-
 
     return (
         <div className="w-3/4 pl-8 pt-0">
@@ -33,7 +30,8 @@ const DataView = () => {
 
                 <div className='max-w-[900px] mb-10 mr-6 border p-1 rounded-md'>
                     <CopyBlock
-                        text={`\nconst { routing } = useCodeflyContext();\nconst url = routing("${route.method}", "${endpoint.service}", "${route.path}")\n\n`}
+                        text={`\nconst { routing } = useCodeflyContext();\nconst url = routing(\n\t"${route.method}",\n\t{ application: "${endpoint.application}", service: "${endpoint.service}" },\n\t"/visit/statistics"\n)\n\n`}
+
                         language={"javascript"}
                         showLineNumbers={false}
                         theme={dracula}
