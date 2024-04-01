@@ -1,12 +1,10 @@
+import { useEffect } from "react";
 import Layout from "../../components/layout";
 import { useCodeflyContext } from "../providers/codefly.provider";
 import VisitorCountChart from "./components/visitor-count-chart";
 
 
-
-
 const Visits = () => {
-
 
   const { routing } = useCodeflyContext()
 
@@ -21,7 +19,10 @@ const Visits = () => {
       });
   }
 
-  markVisit()
+  useEffect(() => {
+    markVisit()
+  }, [])
+
 
   return (
     <Layout>
