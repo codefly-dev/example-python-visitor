@@ -9,11 +9,11 @@ const Header = ({ }: HeaderProps) => {
   return (
     <div className="px-[50px] py-[25px] bg-white dark:bg-black border-b globals__border-color flex justify-between items-left gap-4 py-3">
       <div className="flex flex-direction-left">
-        <Link href="/">
+        <Link href="/" style={{ marginLeft: '20px', fontSize: 20 }}>
           <h1>Visits</h1>
         </Link>
 
-        <Link href="/routing" style={{ marginLeft: '20px' }}>
+        <Link href="/routing" style={{ marginLeft: '20px', fontSize: 20 }}>
           <h1>Routing</h1>
         </Link>
 

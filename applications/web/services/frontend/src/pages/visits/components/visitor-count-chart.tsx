@@ -77,7 +77,7 @@ const VisitorCountChart = ({ shouldYearShow = false, width = '400px', height = '
                             },
                             beginAtZero: true,
                             ticks: {
-                                stepSize: 1 // Set the step size to 1
+                                stepSize: 10 // Set the step size to 1
                             }
                         },
                     },
@@ -110,29 +110,29 @@ const VisitorCountChart = ({ shouldYearShow = false, width = '400px', height = '
     };
 
     return (
-        <div className="mt-5 rounded-lg p-6">
-            <div className="flex justify-between items-center mb-4">
-                <h3 className="text-lg font-bold  text-blue-600">Total Visitors</h3>
-                <div className="flex items-center">
-                    <CountUp
-                        start={startCounting ? 0 : undefined}
-                        end={totalVisits}
-                        duration={3}
-                        separator=","
-                        className="text-2xl font-bold text-blue-600 mr-2"
-                    />
-                    {/* <FaEye className="text-xl  text-blue-600" /> */}
-                </div>
+        <div className="mt-5 p-6">
+            <div className="flex justify-center pt-20">
+                <CountUp
+                    start={startCounting ? 0 : undefined}
+                    end={totalVisits}
+                    duration={3}
+                    style={{ fontSize: 200, display: 'flex' }}
+                    separator=","
+                    className="text-2xl font-bold text-blue-600 mr-2"
+                />
             </div>
-            <div style={{ width: '100%', height: '50px' }} />
+            <div className="flex justify-center pt-20 pb-10">
+                <h2>Total visits</h2>
+            </div>
+
             <canvas
                 ref={canvasRef}
                 id="visitor-count-chart"
-                width={width}
-                height={height}
                 className="w-full h-auto"
-                style={{ border: '1px solid #777', padding: '5px' }}
-            ></canvas>
+                style={{ backgroundColor: "#f1f1f1", padding: "30px", fontSize: "40px", borderRadius: '10px' }}
+            />
+
+
         </div>
     );
 };
