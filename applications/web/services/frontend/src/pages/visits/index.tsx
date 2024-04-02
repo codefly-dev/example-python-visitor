@@ -20,13 +20,13 @@ const Visits = () => {
   }
 
   useEffect(() => {
-    markVisit()
+    // markVisit()
   }, [])
 
 
   return (
     <Layout>
-      <div style={{ width: '60%', height: '400px', margin: '0 auto', border: '1px solid #ccc' }}>
+      <div style={{ width: '60%', height: '400px', margin: '0 auto' }}>
         <VisitorCountChart />
       </div>
     </Layout>

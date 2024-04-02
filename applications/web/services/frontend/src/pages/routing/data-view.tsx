@@ -19,25 +19,24 @@ const DataView = () => {
     return (
         <div className="w-3/4 pl-8 pt-0">
 
+            <h2 className="pb-4">Usage</h2>
+            <p className="mt-2">
+                In the code, we fetch the data with the SDK
+            </p>
+            <div className='max-w-[900px] mb-10 mr-6 border p-1 rounded-md'>
+                <CopyBlock
+                    text={`\nconst { routing } = useCodeflyContext();\nconst url = routing(\n\t"${route.method}",\n\t{ application: "${endpoint.application}", service: "${endpoint.service}" },\n\t"${route.path}"\n)\n\n`}
+
+                    language={"javascript"}
+                    showLineNumbers={false}
+                    theme={dracula}
+                />
+            </div>
             {method !== "GET" && <DataInput />}
+
+
             {response && <>
                 <h2 className="pb-4">Response</h2>
-
-
-                <p className="mt-2">
-                    In the code, we fetch the data with the SDK
-                </p>
-
-                <div className='max-w-[900px] mb-10 mr-6 border p-1 rounded-md'>
-                    <CopyBlock
-                        text={`\nconst { routing } = useCodeflyContext();\nconst url = routing(\n\t"${route.method}",\n\t{ application: "${endpoint.application}", service: "${endpoint.service}" },\n\t"/visit/statistics"\n)\n\n`}
-
-                        language={"javascript"}
-                        showLineNumbers={false}
-                        theme={dracula}
-                    />
-
-                </div>
 
                 <div className='max-w-[600px] mb-10 mr-6 '>
                     <h2 className="mb-1">Data</h2>
