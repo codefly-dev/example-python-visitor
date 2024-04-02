@@ -129,9 +129,7 @@ const VisitorCountChart = ({ shouldYearShow = false, width = '400px', height = '
                 ref={canvasRef}
                 id="visitor-count-chart"
                 className="w-full h-auto"
-                style={{ backgroundColor: "#f1f1f1", padding: "30px", fontSize: "40px", borderRadius: '10px' }}
-            />
-
+            ></canvas>
 
         </div>
     );
