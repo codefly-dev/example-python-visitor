@@ -20,7 +20,7 @@ const Visits = () => {
   }
 
   useEffect(() => {
-    // markVisit()
+    markVisit()
   }, [])
 
 
