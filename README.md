@@ -230,11 +230,9 @@ As before, the address of the database is found most easily in logs or in the fr
 ```shell
 backend/store >> will run on address: localhost:42350
 
-Credentials can be found in the `providers` folder of the service.
+Credentials can be found in the `configurations` folder of the service.
 
-Note on provider: a service has provider information IN and has provider info out.
-
-In our case, the provider information is the credentials for the database but the information out is the connection string. We will see how it is used later.
+In our case, the configutation input is the credentials for the database but the configuration out is the connection string. We will see how it is used later.
 
 
 Open `DBeaver` and create a connection to test it out.
@@ -292,13 +290,15 @@ We have added some data to get a better API definition in `visit.py` and we have
 
 The important part is how we get the connection string for the database.
 
-codefly has SDK for python that accesses the provider information for a given service. 
+codefly has SDK for python that accesses the configuration for a given service. 
 
-In that case, since `store` is a dependency for the `server` and it exposes the `postgres/connection` provider info, we can directly get it:
+In that case, since `store` is a dependency for the `server` and it exposes the `postgres/connection` configuration, we can directly get it:
 
 ```python
-connection = codefly.get_service_provider_info(application="backend", service="store", name="postgres", key="connection")
+connection = codefly.secret(service="store", name="postgres", key="connection")
 ```
+
+The setup for the database client is done in `setup.py`.
 
 This code will work locally and for your deployment in Kubernetes or elsewhere!
 
@@ -357,16 +357,33 @@ The important part is as with the database, how do we get the redis connection s
 
 Remember, we have two endpoints *write* and *read* provided by this `redis` agent so we expect two connection strings as well!
 
-As for the database, we rely on the SDK to get our provider information:
+As for the database, we rely on the SDK to get our configuration:
 
 ```python
-connection_write_redis = codefly.get_service_provider_info(application="backend", service="cache", name="redis", key="write")
-connection_read_redis = codefly.get_service_provider_info(application="backend", service="cache", name="redis", key="read")
+connection_write_redis = codefly.secret(service="cache", name="redis", key="write")
+connection_read_redis = codefly.secret(service="cache", name="redis", key="read")
 ```
 
 Note: How we know what provider info are exposed by a given service? This is actually part of the service API and we display it for example in the CLI frontend companion.
 
-TODO: Do we want the SDK to list the provider information available?
+TODO: Do we want the SDK to list the configuration available?
+
+## Frontend
+
+### Creating the frontend service
+
+In the `web` application folder, run:
+
+```
+codefly add service frontend --agent=nextjs
+```
+
+And create dependency to the `backend`:
+
+```shell
+codefly add dependency
+```
+in the `frontend` service folder, and select the `backend` service in "another application".
 
 
 ## Local Kubernetes
@@ -405,16 +422,15 @@ codefly provides the `heroku` type of experience where you can just develop loca
 
 But for now, we are in demo mode, so we will use a local cluster, Docker Desktop Kubernetes for example.
 
-First we need something to play the role of the external database. And we will use our own `store` service.
+First we need something to play the role of the external database. And we will use our own `store` service, therefore we copy the `configurations/local` to `configurations/localkube`
 
 If you used the `persist` option, your local Postgres should still be running. Otherwise, run it from inside the `store` service.
 
-We need to give the information about where the external Postgres is running.
-
-We will a special file in the project level `providers`: the `dns.env`.
-
-```
-backend/store=host.docker.internal:42350
+We need to give the information about where the external Postgres is running by creating a dns entry in the service `dns/localkube` folder:
+```yaml
+- endpoint: tcp
+  host: host.docker.internal
+  port: 42330
 ```
 
 You will recognize the port of the store from before.
@@ -425,5 +441,12 @@ The host is `host.docker.internal` because we are running the Kubernetes cluster
 Now let's deploy our stack!
 
 ```shell
-codefly deploy service --apply
+codefly deploy service --env=localkube --apply
 ```
+
+To access the endpoints, you can just run:
+```shell
+codefly expose
+```
+
+And you will get the URL to access your website and API.

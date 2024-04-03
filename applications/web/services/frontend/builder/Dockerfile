@@ -1,4 +1,3 @@
-# Build the Next.js application
 FROM node:21-alpine AS builder
 
 WORKDIR /app
@@ -15,9 +14,26 @@ COPY service.codefly.yaml .
 
 COPY src .
 
-
-# Build the application
-CMD npm run dev
+# Build the Next.js application
+#FROM node:21-alpine AS builder
+#
+#WORKDIR /app
+#
+## Copy package.json and package-lock.json (or yarn.lock)
+#COPY src/package.json src/package-lock.json* ./
+#
+## Install dependencies
+#RUN npm install --frozen-lockfile
+#
+## Copy the rest of the application code
+#
+#COPY service.codefly.yaml .
+#
+#COPY src .
+#
+#
+## Build the application
+#CMD npm run dev
 #
 ## Production environment
 #FROM node:21-alpine AS production
