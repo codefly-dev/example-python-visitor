@@ -4,8 +4,8 @@ application: backend
 project: python-visitors
 agent:
     kind: codefly:service
-    name: python-poetry-fastapi
-    version: 0.0.8
+    name: python-fastapi
+    version: 0.0.35
     publisher: codefly.dev
 service-dependencies:
     - name: store
