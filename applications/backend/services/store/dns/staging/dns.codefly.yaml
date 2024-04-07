@@ -1,3 +1,0 @@
-- endpoint: tcp
-  host: host.docker.internal
-  port: 42330

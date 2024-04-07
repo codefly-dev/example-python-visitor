@@ -10,4 +10,4 @@ COPY . .
 
 COPY migrations /app/migrations
 
-CMD /usr/local/bin/migrate -path /app/migrations -database "$${CODEFLY__SERVICE_SECRET_CONFIGURATION__BACKEND__STORE__POSTGRES__CONNECTION}" up
+CMD /usr/local/bin/migrate -path /app/migrations -database "${CODEFLY__SERVICE_SECRET_CONFIGURATION__BACKEND__STORE__POSTGRES__CONNECTION}" up
