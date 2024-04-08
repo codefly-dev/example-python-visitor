@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: server
-  namespace: python-visitors-backend-aws
+  namespace: python-visitors-backend-localkube
 spec:
   replicas: 1
   selector:

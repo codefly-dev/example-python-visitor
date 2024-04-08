@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: cache-config
-  namespace: "python-visitors-backend-aws"
+  namespace: "python-visitors-backend-localkube"
 data:
   redis.conf: |
     # Redis configuration file

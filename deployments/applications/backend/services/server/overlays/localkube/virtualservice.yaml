@@ -1,11 +1,11 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: frontend
-  namespace: python-visitors-web-aws
+  name: server
+  namespace: python-visitors-backend-localkube
 spec:
   hosts:
-    - "kopkfeqwuk-aws-frontend-web-python-visitors.codefly.build"
+    - ""
   gateways:
     - istio-system/gateway
   http:
@@ -14,6 +14,6 @@ spec:
             prefix: "/"
       route:
         - destination:
-            host: frontend
+            host: server
             port:
               number: 8080
