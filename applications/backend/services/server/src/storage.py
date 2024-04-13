@@ -7,9 +7,15 @@ from visit import *
 
 class Storage:
     def __init__(self, connection: str) -> None:
+        self.connection = connection
+        self.connect()
+
+    def connect(self):
         self.conn = psycopg2.connect(connection)
 
     def get_cursor(self):
+        if self.conn.closed:
+            self.connect()
         return self.conn.cursor()
 
     def create_visit(self) -> Optional[CreateVisitResponse]:
@@ -31,7 +37,7 @@ class Storage:
                 self.conn.commit()
                 return CreateVisitResponse(visit_number=result[0]) if result else None
         except Exception as e:
-            print(f"An error occurred: {e}")
+            print(f"database: error occurred: {e}")
 
     def get_visit_statistics(self) -> Optional[GetVisitStatisticsResponse]:
         try:
