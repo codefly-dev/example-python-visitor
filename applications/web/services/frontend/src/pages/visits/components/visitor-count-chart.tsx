@@ -62,7 +62,7 @@ const VisitorCountChart = ({ shouldYearShow = false, width = '400px', height = '
                             easing: "easeInCubic",
                             from: 1,
                             to: 0,
-                            loop: true,
+                            loop: false,
                         },
                     },
                     scales: {
