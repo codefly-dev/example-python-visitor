@@ -5,7 +5,7 @@ project: python-visitors
 agent:
     kind: codefly:service
     name: redis
-    version: 0.0.34
+    version: 0.0.35
     publisher: codefly.dev
 service-dependencies: []
 project-configuration-dependencies: []
