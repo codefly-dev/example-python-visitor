@@ -22,7 +22,15 @@ const VisitorCountChart = ({ shouldYearShow = false, width = '400px', height = '
                     throw new Error("Failed to fetch data");
                 }
                 const visitorData = await response.json();
-                setVisitorVisits(visitorData.visits);
+
+                const accumulatedVisits = visitorData.visits.reduce((acc, visit, index) => {
+                    const accumulated = index === 0 ? visit.visits : acc[index - 1].accumulated + visit.visits;
+                    acc.push({ ...visit,  accumulated });
+                    return acc;
+                  }, []);
+
+                  console.log('accumulatedVisits', accumulatedVisits)
+                setVisitorVisits(accumulatedVisits);
                 setTotalVisits(visitorData.total_visits);
                 setStartCounting(true);
 
@@ -48,7 +56,7 @@ const VisitorCountChart = ({ shouldYearShow = false, width = '400px', height = '
                     datasets: [
                         {
                             label: "Visitor Count",
-                            data: visitorVisits.map((entry) => entry.visits),
+                            data: visitorVisits.map((entry) => entry.accumulated),
                             fill: false,
                             borderColor: "rgba(54, 162, 235, 1)",
                             tension: 1,
