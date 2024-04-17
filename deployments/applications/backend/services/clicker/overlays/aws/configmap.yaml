@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-clicker
+  namespace: "python-visitors-backend-aws"
+data:
+  CODEFLY__RUNNING: "true"

@@ -1,5 +1,5 @@
 name: frontend
-version: 0.0.0
+version: 0.0.1
 application: web
 project: python-visitors
 agent:
@@ -9,6 +9,8 @@ agent:
     publisher: codefly.dev
 service-dependencies:
     - name: server
+      application: backend
+    - name: clicker
       application: backend
 project-configuration-dependencies: []
 endpoints:

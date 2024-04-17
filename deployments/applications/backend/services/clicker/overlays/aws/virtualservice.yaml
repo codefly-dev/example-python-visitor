@@ -1,0 +1,19 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: clicker
+  namespace: python-visitors-backend-aws
+spec:
+  hosts:
+    - "kopkfeqwuk-aws-clicker-backend-python-visitors.codefly.build"
+  gateways:
+    - istio-system/gateway
+  http:
+    - match:
+        - uri:
+            prefix: "/"
+      route:
+        - destination:
+            host: clicker
+            port:
+              number: 8080
