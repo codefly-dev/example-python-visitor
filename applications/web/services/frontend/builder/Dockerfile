@@ -10,9 +10,9 @@ RUN npm install
 
 # Copy the rest of the application code
 
-COPY service.codefly.yaml .
-
 COPY src .
+
+COPY service.codefly.yaml .
 
 
 # Build the application
@@ -45,9 +45,9 @@ ENV NODE_ENV production
 EXPOSE 3000
 
 
-COPY service.codefly.yaml .
-
 COPY src .
+
+COPY service.codefly.yaml .
 
 
 # Command to start the Next.js application in production mode

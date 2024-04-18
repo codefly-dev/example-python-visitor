@@ -1,13 +1,14 @@
-name: clicker
-version: 0.0.0
+name: clicks
+version: 0.0.1
 application: backend
 project: python-visitors
 agent:
     kind: codefly:service
     name: python-fastapi
-    version: 0.0.43
+    version: 0.0.44
     publisher: codefly.dev
-service-dependencies: []
+service-dependencies:
+    - name: postgres
 project-configuration-dependencies: []
 endpoints:
     - name: rest

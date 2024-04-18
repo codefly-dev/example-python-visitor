@@ -1,15 +1,15 @@
-name: server
+name: visits
 version: 0.0.1
 application: backend
 project: python-visitors
 agent:
     kind: codefly:service
     name: python-fastapi
-    version: 0.0.43
+    version: 0.0.44
     publisher: codefly.dev
 service-dependencies:
-    - name: store
-    - name: cache
+    - name: postgres
+    - name: redis
 project-configuration-dependencies: []
 endpoints:
     - name: rest

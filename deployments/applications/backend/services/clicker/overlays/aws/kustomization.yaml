@@ -9,4 +9,4 @@ resources:
 images:
   - name: image:tag
     newName: 621829027644.dkr.ecr.us-east-1.amazonaws.com/kopkfeqwuk/python-visitors/backend/clicker
-    newTag: 0.0.0
+    newTag: 0.0.1

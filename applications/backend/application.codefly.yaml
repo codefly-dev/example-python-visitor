@@ -2,7 +2,7 @@ kind: application
 name: backend
 project: python-visitors
 services:
-    - name: server
-    - name: store
-    - name: cache
-    - name: clicker
+    - name: visits
+    - name: postgres
+    - name: redis
+    - name: clicks

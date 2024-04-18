@@ -1,16 +1,16 @@
 name: frontend
-version: 0.0.1
+version: 0.0.2
 application: web
 project: python-visitors
 agent:
     kind: codefly:service
     name: nextjs
-    version: 0.0.34
+    version: 0.0.35
     publisher: codefly.dev
 service-dependencies:
-    - name: server
+    - name: visits
       application: backend
-    - name: clicker
+    - name: clicks
       application: backend
 project-configuration-dependencies: []
 endpoints:
