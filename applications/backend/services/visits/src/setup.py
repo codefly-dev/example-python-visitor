@@ -4,7 +4,7 @@ from cache import Cache
 from typing import Optional
 
 def setup() -> [Storage, Optional[Cache]]:
-    connection_db = codefly.secret(application="backend", service="store", name="postgres", key="connection")
+    connection_db = codefly.secret(application="backend", service="postgres", name="postgres", key="connection")
 
     if connection_db:
         print("setting storage", connection_db)
@@ -14,8 +14,8 @@ def setup() -> [Storage, Optional[Cache]]:
 
     cache = None
 
-    connection_write_redis = codefly.secret(application="backend", service="cache", name="write", key="connection")
-    connection_read_redis = codefly.secret(application="backend", service="cache", name="read", key="connection")
+    connection_write_redis = codefly.secret(application="backend", service="redis", name="write", key="connection")
+    connection_read_redis = codefly.secret(application="backend", service="redis", name="read", key="connection")
 
     if connection_read_redis and connection_write_redis:
         print("setting cache")
