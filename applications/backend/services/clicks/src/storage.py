@@ -42,6 +42,8 @@ class Storage:
                 SELECT count
                 FROM click
             """)).fetchone()
+            if rows is None:
+                return GetClicksResponse(count=0)
             return GetClicksResponse(count=rows[0])
         except Exception as e:
             print(f"An error occurred: {e}")

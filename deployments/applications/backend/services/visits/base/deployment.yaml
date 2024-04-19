@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend
-  namespace: "python-visitors-web-localkube"
+  name: visits
+  namespace: python-visitors-backend-localkube
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: frontend
+      app: visits
   template:
     metadata:
       labels:
-        app: frontend
+        app: visits
     spec:
       containers:
-        - name: frontend
+        - name: visits
           image: image:tag
           envFrom:
             - configMapRef:
-                name: config-frontend
+                name: config-visits
             - secretRef:
-                name: secret-frontend
+                name: secret-visits

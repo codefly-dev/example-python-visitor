@@ -26,8 +26,11 @@ app.add_middleware(
 store = None
 
 if codefly.is_running():
-    print("RUNNING")
+    print("setting up store")
     store = setup()
+    if store is None:
+        print("no store")
+        raise Exception("No store available")
 
 @app.get("/version")
 async def version():
@@ -36,19 +39,13 @@ async def version():
 
 @app.post("/click", response_model=GetClicksResponse)
 async def do_click():
-    if not store:
-        print("no store")
-        raise HTTPException(status_code=500, detail="No store available")
     resp = store.create_click()
     if not resp:
-        raise HTTPException(status_code=500, detail="Can't get clicks")
+        raise HTTPException(status_code=500, detail="can't get clicks")
     return resp
 
 @app.get("/clicks", response_model=GetClicksResponse)
 async def get_clicks():
-    if not store:
-        print("no store")
-        raise HTTPException(status_code=500, detail="No store available")
     resp = store.get_clicks()
     if not resp:
         raise HTTPException(status_code=500, detail="Can't get clicks")

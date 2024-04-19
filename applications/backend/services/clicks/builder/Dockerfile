@@ -39,9 +39,9 @@ COPY --chown=appuser service.codefly.yaml .
 
 # We go be smarter here
 
-COPY --chown=appuser service.codefly.yaml service.codefly.yaml
-
 COPY --chown=appuser src src
+
+COPY --chown=appuser service.codefly.yaml service.codefly.yaml
 
 
 

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-visits
+  namespace: "python-visitors-backend-localkube"
+data:
+  CODEFLY__RUNNING: "true"

@@ -2,7 +2,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: store
-  namespace: python-visitors-backend-aws
+  namespace: python-visitors-backend-localkube
 spec:
   template:
     metadata:

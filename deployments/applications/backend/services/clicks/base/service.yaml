@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: frontend
-  namespace: "python-visitors-web-localkube"
+  name: clicks
+  namespace: python-visitors-backend-localkube
 spec:
   selector:
-    app: frontend
+    app: clicks
   ports:
     - protocol: TCP
       name: http-port
       port: 8080
-      targetPort: 3000
+      targetPort: 8080

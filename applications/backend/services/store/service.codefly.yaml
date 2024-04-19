@@ -1,22 +1,22 @@
-name: redis
-version: 0.0.0
+name: store
+version: 0.0.1
 application: backend
 project: python-visitors
 agent:
     kind: codefly:service
-    name: redis
-    version: 0.0.36
+    name: external-postgres
+    version: 0.0.45
     publisher: codefly.dev
 service-dependencies: []
 project-configuration-dependencies: []
 endpoints:
-    - name: write
-      api: tcp
-    - name: read
-      api: tcp
+    - name: tcp
+      visibility: external
 spec:
+    database-name: visitors
     debug: false
+    no-migration: false
     persist: true
-    read-replica: true
     silent: true
-    watch: false
+    watch: true
+    without-ssl: false

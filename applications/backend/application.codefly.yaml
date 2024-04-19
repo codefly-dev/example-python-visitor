@@ -3,6 +3,6 @@ name: backend
 project: python-visitors
 services:
     - name: visits
-    - name: postgres
-    - name: redis
+    - name: store
+    - name: cache
     - name: clicks
