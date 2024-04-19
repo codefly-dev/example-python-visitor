@@ -10,7 +10,7 @@ const Visits = () => {
 
   const markVisit = () => {
 
-    const visitUrl = routing("POST", { application: "backend", service: "server" }, "/visit")
+    const visitUrl = routing("POST", { application: "backend", service: "visits" }, "/visit")
     fetch(visitUrl,
       {
         method: 'POST',
@@ -25,11 +25,9 @@ const Visits = () => {
 
 
   return (
-    <Layout>
       <div style={{ width: '60%', height: '400px', margin: '0 auto' }}>
         <VisitorCountChart />
       </div>
-    </Layout>
   );
 };
 
