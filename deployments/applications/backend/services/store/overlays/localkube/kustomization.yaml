@@ -1,0 +1,9 @@
+resources:
+  - ../../base
+  - secret.yaml
+
+
+images:
+  - name: image:tag
+    newName: codefly-dev/python-visitors/backend/store
+    newTag: 0.0.1

@@ -1,0 +1,10 @@
+resources:
+  - ../../base
+  - configmap.yaml
+  - secret.yaml
+  
+
+images:
+  - name: image:tag
+    newName: codefly-dev/python-visitors/backend/clicks
+    newTag: 0.0.1

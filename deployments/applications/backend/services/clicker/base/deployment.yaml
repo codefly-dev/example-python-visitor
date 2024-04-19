@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clicker
+  namespace: python-visitors-backend-aws
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: clicker
+  template:
+    metadata:
+      labels:
+        app: clicker
+    spec:
+      containers:
+        - name: clicker
+          image: image:tag
+          envFrom:
+            - configMapRef:
+                name: config-clicker
+            - secretRef:
+                name: secret-clicker

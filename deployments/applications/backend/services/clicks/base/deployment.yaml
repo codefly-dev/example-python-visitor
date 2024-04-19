@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clicks
+  namespace: python-visitors-backend-localkube
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: clicks
+  template:
+    metadata:
+      labels:
+        app: clicks
+    spec:
+      containers:
+        - name: clicks
+          image: image:tag
+          envFrom:
+            - configMapRef:
+                name: config-clicks
+            - secretRef:
+                name: secret-clicks
