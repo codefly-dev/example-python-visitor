@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: visits
+  namespace: python-visitors-localkube
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: visits
+  template:
+    metadata:
+      labels:
+        app: visits
+    spec:
+      containers:
+        - name: visits
+          image: image:tag
+          envFrom:
+            - configMapRef:
+                name: config-visits
+            - secretRef:
+                name: secret-visits

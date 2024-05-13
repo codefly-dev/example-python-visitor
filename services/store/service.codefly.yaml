@@ -1,0 +1,17 @@
+name: store
+version: 0.0.0
+module: python-visitors
+agent:
+    kind: codefly:service
+    name: external-postgres
+    version: 0.0.45
+    publisher: codefly.dev
+service-dependencies: []
+endpoints:
+    - name: tcp
+      visibility: external
+spec:
+    database-name: python-visitors
+    hot-reload: false
+    no-migration: false
+    without-ssl: false

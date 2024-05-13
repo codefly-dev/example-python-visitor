@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: "read-cache"
+  namespace: "python-visitors-localkube"
+spec:
+  selector:
+    app: "cache-read"
+  ports:
+    - protocol: TCP
+      name: tcp-port
+      port: 6379
+      targetPort: 6379

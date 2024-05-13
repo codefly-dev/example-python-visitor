@@ -1,0 +1,7 @@
+kind: module
+name: python-visitors
+services:
+    - name: visits
+    - name: store
+    - name: cache
+    - name: frontend

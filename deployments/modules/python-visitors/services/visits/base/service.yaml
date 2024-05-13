@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: visits
+  namespace: python-visitors-localkube
+spec:
+  selector:
+    app: visits
+  ports:
+    - protocol: TCP
+      name: http-port
+      port: 8080
+      targetPort: 8080

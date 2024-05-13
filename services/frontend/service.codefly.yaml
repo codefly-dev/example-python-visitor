@@ -1,0 +1,16 @@
+name: frontend
+version: 0.0.0
+module: python-visitors
+agent:
+    kind: codefly:service
+    name: nextjs
+    version: 0.0.37
+    publisher: codefly.dev
+service-dependencies:
+    - name: visits
+-configuration-dependencies: []
+endpoints:
+    - name: http
+      visibility: public
+spec:
+    debug: false
