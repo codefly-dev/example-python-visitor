@@ -18,8 +18,7 @@ codefly-sdk = "^0.0.12"
 pytest = "^8.2.0"
 httpx = "^0.27.0"
 pytest-asyncio = "^0.23.6"
-#codefly-cli = "^0.0.2"
-codefly-cli = { path = "/Users/antoine/Development/codefly.dev/core/generated/python/codefly-cli" }
+codefly-cli = "^0.0.4"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

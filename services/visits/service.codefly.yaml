@@ -9,7 +9,6 @@ agent:
 service-dependencies:
     - name: store
     - name: cache
--configuration-dependencies: []
 endpoints:
     - name: rest
       visibility: public

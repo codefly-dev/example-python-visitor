@@ -8,7 +8,6 @@ agent:
     publisher: codefly.dev
 service-dependencies:
     - name: visits
--configuration-dependencies: []
 endpoints:
     - name: http
       visibility: public

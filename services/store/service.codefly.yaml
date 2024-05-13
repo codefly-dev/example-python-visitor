@@ -6,7 +6,6 @@ agent:
     name: external-postgres
     version: 0.0.45
     publisher: codefly.dev
-service-dependencies: []
 endpoints:
     - name: tcp
       visibility: external
