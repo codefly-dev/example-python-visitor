@@ -4,7 +4,7 @@ module: python-visitors
 agent:
     kind: codefly:service
     name: redis
-    version: 0.0.38
+    version: 0.0.43
     publisher: codefly.dev
 endpoints:
     - name: write
@@ -13,4 +13,4 @@ endpoints:
       api: tcp
 spec:
     watch: false
-    with-read-replicas: true
+    with-read-replicas: false
