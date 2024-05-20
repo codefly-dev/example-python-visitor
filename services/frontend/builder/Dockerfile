@@ -1,16 +1,16 @@
-FROM codeflydev/node:0.0.4 AS builder
+FROM codeflydev/node:0.0.5 AS builder
 
 WORKDIR /app
 
 # Copy package.json and package-lock.json (or yarn.lock)
-COPY src/package.json  ./
+COPY code/package.json  ./
 
 # Install dependencies
 RUN npm install
 
 # Copy the rest of the application code
 
-COPY src .
+COPY code .
 
 
 # Build the application
@@ -19,7 +19,7 @@ RUN npm run build
 COPY service.codefly.yaml .
 
 # Production environment
-FROM codeflydev/node:0.0.4 AS production
+FROM codeflydev/node:0.0.5 AS production
 
 # Set working directory
 WORKDIR /app
@@ -45,7 +45,7 @@ ENV NODE_ENV production
 EXPOSE 3000
 
 
-COPY src .
+COPY code .
 
 
 # Command to start the Next.js application in production mode

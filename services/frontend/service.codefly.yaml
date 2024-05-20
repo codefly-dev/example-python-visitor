@@ -4,7 +4,7 @@ module: python-visitors
 agent:
     kind: codefly:service
     name: nextjs
-    version: 0.0.46
+    version: 0.0.48
     publisher: codefly.dev
 service-dependencies:
     - name: visits
