@@ -1,18 +1,18 @@
+import os
 from httpx import AsyncClient, ASGITransport
 import pytest
 import codefly_sdk.codefly as codefly
-from codefly_cli.codefly import with_dependencies, with_cli_logs, with_debug
+from codefly_cli.codefly import with_dependencies, with_cli_logs, with_debug, with_code_path
 import time
-
 from src.main import app, set_store, set_cache, setup
 from src.models import *
 
 with_cli_logs()
 with_debug()
+with_code_path(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 
 @pytest.mark.asyncio
 async def test_read_root():
-    codefly.init("..")
     async with AsyncClient(transport=ASGITransport(app=app), base_url="http://localhost:8080") as ac:
         response = await ac.get("/version")
     assert response.status_code == 200

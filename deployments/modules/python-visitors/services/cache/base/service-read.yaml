@@ -5,7 +5,7 @@ metadata:
   namespace: "python-visitors-localkube"
 spec:
   selector:
-    app: "cache-read"
+    app: "cache-write"
   ports:
     - protocol: TCP
       name: tcp-port

@@ -4,7 +4,7 @@ module: python-visitors
 agent:
     kind: codefly:service
     name: redis
-    version: 0.0.44
+    version: 0.0.46
     publisher: codefly.dev
 endpoints:
     - name: write

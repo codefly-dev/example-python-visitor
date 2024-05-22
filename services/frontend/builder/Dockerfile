@@ -1,4 +1,4 @@
-FROM codeflydev/node:0.0.5 AS builder
+FROM codeflydev/node:0.0.7 AS builder
 
 WORKDIR /app
 
@@ -19,7 +19,7 @@ RUN npm run build
 COPY service.codefly.yaml .
 
 # Production environment
-FROM codeflydev/node:0.0.5 AS production
+FROM codeflydev/node:0.0.7 AS production
 
 # Set working directory
 WORKDIR /app

@@ -1,5 +1,5 @@
 # The builder image, used to build the virtual environment
-FROM codeflydev/python-poetry:0.0.9 as builder
+FROM codeflydev/python-poetry:0.0.10 as builder
 
 WORKDIR /app
 
@@ -15,7 +15,7 @@ RUN poetry install --without dev --no-root
 
 
 # Runner
-FROM codeflydev/python-poetry:0.0.9 as runtime
+FROM codeflydev/python-poetry:0.0.10 as runtime
 
 WORKDIR /app
 # Set up a non-root user
