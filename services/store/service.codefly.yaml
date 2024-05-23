@@ -4,7 +4,7 @@ module: python-visitors
 agent:
     kind: codefly:service
     name: external-postgres
-    version: 0.0.54
+    version: 0.0.57
     publisher: codefly.dev
 endpoints:
     - name: tcp
